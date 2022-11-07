@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* debugging space */
+    border: 1px solid blueviolet;
+    /* global font settings */
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+body {
+    background-color: darkcyan;
+}
+
+p {
+    font-size: 20px;
+}
+
+button {
+    outline: none;
+    background-color: black;
+}
+
+/* Outer container section */
+.outer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 10px;
+    height: 100vh;
+}
+
+/* top bar container */
+.top-bar {
+    margin: 1%;
+}
+
+.top-bar p {
+    float: right;
+}
+
+/* inner container section */
+.inner-container {
+    background-color: blueviolet;
+    height: 90%;
+}
+
+
+/* header/quiz intro */
+
+
+
+/* quiz content */
+
+
+
