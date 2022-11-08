@@ -2,15 +2,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* debugging space */
-    border: 1px solid blueviolet;
+    /* debugging space - remove borders before finish */
+    /* border: 1px solid blueviolet; */
     /* global font settings */
     font-family: 'Courier New', Courier, monospace;
     color: white;
 }
 
 body {
-    background-color: darkcyan;
+    background-color: darkslategrey;
+    overflow: hidden;
 }
 
 p {
@@ -19,7 +20,17 @@ p {
 
 button {
     outline: none;
-    background-color: black;
+    background-color: gray;
+    font-size: 20px;
+}
+
+h1 , h2 {
+    color: dodgerblue;
+    text-align: center;
+}
+
+li {
+    list-style: none;
 }
 
 /* Outer container section */
@@ -42,16 +53,48 @@ button {
 
 /* inner container section */
 .inner-container {
-    background-color: blueviolet;
-    height: 90%;
+    background-color: black;
+    height: 100%;
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    text-align: center;
+}
+/* use this dsplay to test various sections of quiz */
+header {
+    display: block;
 }
 
-
 /* header/quiz intro */
-
-
+.quiz-intro, main {
+    margin-top: 5%;
+    background-color: black;
+}
+.quiz-intro button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 5%;
+}
 
 /* quiz content */
+main {
+    display: block;
+}
 
+/* question screen */
+.question-screen {
+    display: none;
+}
 
+/* end screen content */
+.finish-screen {
+    display: none;
+    
+}
 
+/* scores screen */
+.score-screen {
+    display: none;
+}

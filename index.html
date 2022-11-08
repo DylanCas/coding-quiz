@@ -12,19 +12,46 @@
         <!-- top bar and timer -->
         <div class="top-bar">
             <button>View Scores</button>
-            <p>Timer: 00:00</p>
+            <p class="" id="countdown">Timer: 00:00</p>
         </div>
         <!-- inner section -->
-        <div class="inner-container">
+        <section class="inner-container">
             <!-- Quiz intro -->
             <header class="quiz-intro">
-
+                <h1>Welcome to this Quiz</h1>
+                <p>To get started, press 'Begin'</p>
+                <button class="quiz-begin" id="startBtn">Begin!</button>
             </header>
+
             <!-- quiz content -->
             <main class="quiz-content">
+                <section class="question-screen">
+                    <h2>Questions Here</h2>
+                    <ul>
+                        <!-- generate answer buttons in JS -->
+                    </ul>
+                </section>
 
+                <!-- end of quiz screen -->
+                <section class="finish-screen">
+                    <h2>End of Quiz</h2>
+                    <p>Your Score: 00</p>
+                    <label for="">Enter Initials:</label>
+                    <input type="text">
+                    <button>Submit</button>
+                </section>
+
+                <!-- high scores screen -->
+                <section class="score-screen">
+                    <h2>High Scores:</h2>
+                    <ol>
+                        <!-- generate score labels in JS -->
+                    </ol>
+                    <button class="go-back">Go Back</button>
+                    <button class="clear-scores">Clear Scores</button>
+                </section>
             </main>
-        </div>
+        </section>
     </div>
 
 
