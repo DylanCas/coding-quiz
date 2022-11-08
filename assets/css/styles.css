@@ -94,6 +94,10 @@ main {
     
 }
 
+input {
+    color: black;
+}
+
 /* scores screen */
 .score-screen {
     display: none;

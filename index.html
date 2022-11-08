@@ -12,7 +12,7 @@
         <!-- top bar and timer -->
         <div class="top-bar">
             <button>View Scores</button>
-            <p class="" id="countdown"><span id="countdown timer">Timer: 00:00</span></p>
+            <p>Timer:<span id="seconds">00</span></p>
         </div>
         <!-- inner section -->
         <section class="inner-container">
@@ -27,7 +27,7 @@
             <main class="quiz-content">
                 <section class="question-screen">
                     <h2>Questions Here</h2>
-                    <ul>
+                    <ul id="questions">
                         <!-- generate answer buttons in JS -->
                     </ul>
                 </section>
@@ -35,10 +35,10 @@
                 <!-- end of quiz screen -->
                 <section class="finish-screen">
                     <h2>End of Quiz</h2>
-                    <p>Your Score: 00</p>
+                    <p>Your Score: <span id="score"></span></p>
                     <label for="">Enter Initials:</label>
                     <input type="text">
-                    <button>Submit</button>
+                    <button id="submitScore">Submit</button>
                 </section>
 
                 <!-- high scores screen -->
