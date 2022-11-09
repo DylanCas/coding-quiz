@@ -11,9 +11,9 @@ Once the timer reaches 0, or you answer all questions, you reach the quiz end sc
 You will have the option to clear the scores or go back to the main menu. 
 
 ## Screenshot and link
-<!-- TODO include screenshot and link -->
-![screenshot](./assets/images/)
-Link:
+<!-- TODO update app screenshot upon completion -->
+![screenshot](./assets/images/coding-quiz*inprogress*.png)
+Link: https://dylancas.github.io/coding-quiz/
 
 ## user story
 AS A coding boot camp student
