@@ -55,6 +55,13 @@ function startQuiz() {
 
     // Timer
     myInterval = setInterval(function() {
+        if (seconds === 1) {
+            questionScreen[0].style.display = "none";
+            finishScreen[0].style.display = "block";
+            scoreEl.innerText = seconds;
+            secondsEl.innerText = '00';
+            clearInterval(myInterval);
+        }
         seconds--;
         secondsEl.innerText = seconds;
     }, 1000);
