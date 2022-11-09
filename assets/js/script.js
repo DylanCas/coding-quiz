@@ -1,6 +1,7 @@
 /* Need to do; Create timer. Create start page. Create series of questions. When correct, move on, when incorrect move on and subtract time. When quiz is finished, store scores on screen. */
 
 // Questions list
+//  TODO add 1 extra answer option to 1st 2 q's
 const questions = [
     {
         id: '1',
@@ -34,6 +35,8 @@ const questions = [
     }
 ];
 
+var currentIndex = 0
+
 let seconds = 60;
 // Selectors
 var timerEl = document.getElementById("countdown");
@@ -54,14 +57,9 @@ function startQuiz() {
     quizIntro[0].style.display = 'none';
     questionScreen[0].style.display = "block"
 
-    var li = document.createElement('li');
+    newQuestion()
 
-    li.innerHTML = `
-    <h4>${questions[0].text}</h4>
 
-    `;
-
-    questionsList.append(li);
 
     // Timer
     myInterval = setInterval(function() {
@@ -75,4 +73,48 @@ function startQuiz() {
         seconds--;
         secondsEl.innerText = seconds;
     }, 1000);
+}
+
+function clickAnswer(event) {
+    console.log(event.target.textContent)
+    var userAnswer = event.target.textContent
+    if (userAnswer === questions[0].answers) {
+        
+    }
+    else {
+        seconds -= 5
+    }
+    currentIndex ++
+    if (currentIndex < questions.length) {
+        newQuestion()
+    }
+    else {
+        questionScreen[0].style.display = "none"
+        finishScreen[0].style.display = "block"
+        clearInterval(myInterval)
+        scoreEl.textContent = seconds
+    }
+    
+}
+
+function newQuestion() {
+    questionScreen[0].innerHTML = ''
+    var h4El = document.createElement('h4')
+    var btn1 = document.createElement('button')
+    var btn2 = document.createElement('button')
+    var btn3 = document.createElement('button')
+    var btn4 = document.createElement('button')
+    
+    h4El.textContent = questions[currentIndex].text
+    btn1.textContent = questions[currentIndex].options[0]
+    btn2.textContent = questions[currentIndex].options[1]
+    btn3.textContent = questions[currentIndex].options[2]
+    btn4.textContent = questions[currentIndex].options[3]
+
+    btn1.addEventListener('click', clickAnswer)
+    btn2.addEventListener('click', clickAnswer)
+    btn3.addEventListener('click', clickAnswer)
+    btn4.addEventListener('click', clickAnswer)
+
+    questionScreen[0].append(h4El, btn1, btn2, btn3, btn4)
 }
