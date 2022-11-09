@@ -3,33 +3,33 @@
 const questions = [
     {
         id: '1',
-        text: 'question number 1',
-        answers: 'yes',
-        options: ['yes', 'no']
+        text: 'Logical AND (&&) returns true if:',
+        answers: 'If both operands are true',
+        options: ['If both operands are true', 'If only one of the operands is true', 'If one of the operands is true, but not both']
     },
     {
         id: '2',
-        text: 'question number 2',
-        answers: 'yes',
-        options: ['yes', 'no']
+        text: 'To create a string, we need to put the text inside...',
+        answers: 'Quotation marks',
+        options: ['/ symbols', '<string> </string> tag', 'Quotation marks']
     },
     {
         id: '3',
-        text: 'question number 3',
-        answers: 'yes',
-        options: ['yes', 'no']
+        text: 'What value will be returned from the following? "console.log(Math.floor(10.64))"',
+        answers: '10',
+        options: ['11', '1', '10', 'undefined']
     },
     {
         id: '4',
-        text: 'question number 4',
-        answers: 'yes',
-        options: ['yes', 'no']
+        text: 'Select the correct method to transform all the characters of a string to lower case',
+        answers: 'text.toLowerCase();',
+        options: ['text.toLower();', 'text.toLowerCase();', 'text.toUpperCase();', 'toLowerCase(text);']
     },
     {
         id: '5',
-        text: 'question number 5',
-        answers: 'yes',
-        options: ['yes', 'no']
+        text: 'In the following code, what will X evaluate to? "let x = 14 % 2;',
+        answers: 'x = 0',
+        options: ['x = 2', 'x = 28', 'x = 0', 'x = 7']
     }
 ];
 let seconds = 60;
