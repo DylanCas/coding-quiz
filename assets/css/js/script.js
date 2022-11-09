@@ -1,4 +1,5 @@
 /* Need to do; Create timer. Create start page. Create series of questions. When correct, move on, when incorrect move on and subtract time. When quiz is finished, store scores on screen. */
+
 // Questions list
 const questions = [
     {
@@ -32,6 +33,7 @@ const questions = [
         options: ['x = 2', 'x = 28', 'x = 0', 'x = 7']
     }
 ];
+
 let seconds = 60;
 // Selectors
 var timerEl = document.getElementById("countdown");
@@ -42,7 +44,6 @@ var questionScreen = document.getElementsByClassName("question-screen");
 var questionsList = document.getElementById("questions");
 var scoreEl = document.getElementById("score");
 var finishScreen = document.getElementsByClassName("finish-screen");
-// Create on click listener to begin the quiz and timer
 
 var myInterval = null;
 
@@ -52,6 +53,15 @@ startBtn.addEventListener('click', startQuiz);
 function startQuiz() {
     quizIntro[0].style.display = 'none';
     questionScreen[0].style.display = "block"
+
+    var li = document.createElement('li');
+
+    li.innerHTML = `
+    <h4>${questions[0].text}</h4>
+
+    `;
+
+    questionsList.append(li);
 
     // Timer
     myInterval = setInterval(function() {
