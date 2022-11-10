@@ -47,10 +47,17 @@ var questionScreen = document.getElementsByClassName("question-screen");
 var questionsList = document.getElementById("questions");
 var scoreEl = document.getElementById("score");
 var finishScreen = document.getElementsByClassName("finish-screen");
+var submitScore = document.getElementById('submitScore');
+var scoreScreen = document.getElementsByClassName('score-screen');
+var goBackBtn = document.getElementsByClassName('go-back')
 
 var myInterval = null;
 
 startBtn.addEventListener('click', startQuiz);
+
+submitScore.addEventListener('click', scoreSubmit);
+
+goBackBtn[0].addEventListener('click', goBack);
 
 // functions
 function startQuiz() {
@@ -74,7 +81,7 @@ function startQuiz() {
         secondsEl.innerText = seconds;
     }, 1000);
 }
-
+// TODO - beyond the first question, even correct answers will subtract 5s
 function clickAnswer(event) {
     console.log(event.target.textContent)
     var userAnswer = event.target.textContent
@@ -99,11 +106,11 @@ function clickAnswer(event) {
 
 function newQuestion() {
     questionScreen[0].innerHTML = ''
-    var h4El = document.createElement('h4')
-    var btn1 = document.createElement('button')
-    var btn2 = document.createElement('button')
-    var btn3 = document.createElement('button')
-    var btn4 = document.createElement('button')
+    var h4El = document.createElement('h4');
+    var btn1 = document.createElement('button');
+    var btn2 = document.createElement('button');
+    var btn3 = document.createElement('button');
+    var btn4 = document.createElement('button');
     
     h4El.textContent = questions[currentIndex].text
     btn1.textContent = questions[currentIndex].options[0]
@@ -117,4 +124,21 @@ function newQuestion() {
     btn4.addEventListener('click', clickAnswer)
 
     questionScreen[0].append(h4El, btn1, btn2, btn3, btn4)
+}
+
+// TODO submit score functionality
+function scoreSubmit() {
+    finishScreen[0].style.display = "none"
+    scoreScreen[0].style.display = "block"
+
+
+    // var userInitials = ;
+    // var userScore = ;
+    // scores[0].append(userInitials, userScore)
+}
+
+// goback will bring user back to quiz intro, but cannot begin quiz again
+function goBack() {
+    scoreScreen[0].style.display = "none"
+    quizIntro[0].style.display = "block"
 }
