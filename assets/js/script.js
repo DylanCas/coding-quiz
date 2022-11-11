@@ -50,6 +50,7 @@ var finishScreen = document.getElementsByClassName("finish-screen");
 var submitScore = document.getElementById('submitScore');
 var scoreScreen = document.getElementsByClassName('score-screen');
 var goBackBtn = document.getElementsByClassName('go-back')
+var clearScoreBtn = document.getElementsByClassName("clear-scores")
 
 var myInterval = null;
 
@@ -142,3 +143,9 @@ function goBack() {
     scoreScreen[0].style.display = "none"
     quizIntro[0].style.display = "block"
 }
+
+// clear scores function(Will leave commented out until further completed)
+/*clearScoreBtn.addEventListener("click", clearScores)
+function clearScores() {
+    localStorage.clear();
+}*/
