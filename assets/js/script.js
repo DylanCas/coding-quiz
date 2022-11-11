@@ -1,19 +1,18 @@
 /* Need to do; Create timer. Create start page. Create series of questions. When correct, move on, when incorrect move on and subtract time. When quiz is finished, store scores on screen. */
 
 // Questions list
-//  TODO add 1 extra answer option to 1st 2 q's
 const questions = [
     {
         id: '1',
         text: 'Logical AND (&&) returns true if:',
         answers: 'If both operands are true',
-        options: ['If both operands are true', 'If only one of the operands is true', 'If one of the operands is true, but not both']
+        options: ['If both operands are true', 'If only one of the operands is true', 'If one of the operands is true, but not both', 'If both are false']
     },
     {
         id: '2',
         text: 'To create a string, we need to put the text inside...',
         answers: 'Quotation marks',
-        options: ['/ symbols', '<string> </string> tag', 'Quotation marks']
+        options: ['/ symbols', '<string> </string> tag', 'Quotation marks', 'Inside their own tags, "<###></###>"']
     },
     {
         id: '3',
