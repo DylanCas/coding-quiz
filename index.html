@@ -11,7 +11,7 @@
     <div class="outer-container">
         <!-- top bar and timer -->
         <div class="top-bar">
-            <button>View Scores</button>
+            <button id="viewScores">View Scores</button>
             <p>Timer:<span id="seconds">00</span></p>
         </div>
         <!-- inner section -->
@@ -26,7 +26,6 @@
             <!-- quiz content -->
             <main class="quiz-content">
                 <section class="question-screen">
-                    
                 </section>
 
                 <!-- end of quiz screen -->
@@ -34,7 +33,7 @@
                     <h2>End of Quiz</h2>
                     <p>Your Score: <span id="score"></span></p>
                     <label for="">Enter Initials:</label>
-                    <input type="text">
+                    <input id="enterInitials" type="text">
                     <button id="submitScore">Submit</button>
                 </section>
 
@@ -42,10 +41,14 @@
                 <section class="score-screen">
                     <h2>High Scores:</h2>
                     <section class="scores">
-
+                        <p id="score1"></p>
+                        <p id="score2"></p>
+                        <p id="score3"></p>
+                        <p id="score4"></p>
+                        <p id="score5"></p>    
                     </section>
                     <button class="go-back">Go Back</button>
-                    <button class="clear-scores">Clear Scores</button>
+                    <button id="clearScores" class="clear-scores">Clear Scores</button>
                 </section>
             </main>
         </section>

@@ -1,5 +1,3 @@
-/* Need to do; Create timer. Create start page. Create series of questions. When correct, move on, when incorrect move on and subtract time. When quiz is finished, store scores on screen. */
-
 // Questions list
 const questions = [
     {
@@ -48,8 +46,17 @@ var scoreEl = document.getElementById("score");
 var finishScreen = document.getElementsByClassName("finish-screen");
 var submitScore = document.getElementById('submitScore');
 var scoreScreen = document.getElementsByClassName('score-screen');
-var goBackBtn = document.getElementsByClassName('go-back')
-var clearScoreBtn = document.getElementsByClassName("clear-scores")
+var goBackBtn = document.getElementsByClassName('go-back');
+var clearScoreBtn = document.getElementById("clearScores");
+var enterInitials = document.getElementById("enterInitials");
+var viewScoresBtn = document.getElementById("viewScores")
+var scoreEls = [
+    document.getElementById("score1"),
+    document.getElementById("score2"),
+    document.getElementById("score3"),
+    document.getElementById("score4"),
+    document.getElementById("score5")
+];
 
 var myInterval = null;
 
@@ -61,6 +68,8 @@ goBackBtn[0].addEventListener('click', goBack);
 
 // functions
 function startQuiz() {
+    currentIndex = 0;
+    seconds = 60;
     quizIntro[0].style.display = 'none';
     questionScreen[0].style.display = "block"
 
@@ -81,11 +90,11 @@ function startQuiz() {
         secondsEl.innerText = seconds;
     }, 1000);
 }
-// TODO - beyond the first question, even correct answers will subtract 5s
+
 function clickAnswer(event) {
     console.log(event.target.textContent)
     var userAnswer = event.target.textContent
-    if (userAnswer === questions[0].answers) {
+    if (userAnswer === questions[currentIndex].answers) {
         
     }
     else {
@@ -126,25 +135,63 @@ function newQuestion() {
     questionScreen[0].append(h4El, btn1, btn2, btn3, btn4)
 }
 
-// TODO submit score functionality
 function scoreSubmit() {
     finishScreen[0].style.display = "none"
     scoreScreen[0].style.display = "block"
 
+    let scores = localStorage.getItem("scores");
+    if (scores == null) {
+        scores = [];
+    } else {
+        scores = JSON.parse(scores);
+    }
 
-    // var userInitials = ;
-    // var userScore = ;
-    // scores[0].append(userInitials, userScore)
+    let userInitials = enterInitials.value;
+    let userScore = seconds;
+    let newIndex = scores.findIndex(entry => entry.score < userScore);
+    if (newIndex == -1) {
+        scores.push({ initials: userInitials, score: userScore });
+    } else {
+        scores.splice(newIndex, 0, { initials: userInitials, score: userScore });
+    }
+
+    while (scores.length > 5) {
+        scores.pop();
+    }
+
+    localStorage.setItem("scores", JSON.stringify(scores));
+
+    displayScores(scores);
 }
 
-// goback will bring user back to quiz intro, but cannot begin quiz again
+function displayScores(scores) {
+    for (let i = 0; i < 5; ++i) {
+        if (scores[i] != null) {
+            scoreEls[i].textContent = `${scores[i].initials} : ${scores[i].score}`;
+        } else {
+            scoreEls[i].textContent = '--';
+        }
+    }
+}
+
+// goback will bring user back to quiz intro
 function goBack() {
     scoreScreen[0].style.display = "none"
     quizIntro[0].style.display = "block"
 }
 
-// clear scores function(Will leave commented out until further completed)
-/*clearScoreBtn.addEventListener("click", clearScores)
+// clear scores function displays user scores screen
+clearScoreBtn.addEventListener("click", clearScores);
 function clearScores() {
-    localStorage.clear();
-}*/
+    localStorage.removeItem("scores");
+    displayScores([]);
+}
+
+viewScoresBtn.addEventListener("click", function(){
+    finishScreen[0].style.display = "none"
+    questionScreen[0].style.display = "none"
+    quizIntro[0].style.display = "none"
+    scoreScreen[0].style.display = "block"
+    clearInterval(myInterval);
+
+})
